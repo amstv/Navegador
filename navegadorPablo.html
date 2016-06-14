@@ -17,6 +17,8 @@
             display: flex;
             justify-content: space-between;
             height: 60px;
+            top:0px;
+            transition: all 1s;
         }
 
         a{
@@ -158,24 +160,24 @@
             nav{
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height .8s ease-in;
+                transition: max-height .8s;
             }
 
             #about{
                 max-height: 0;
-                transition: max-height .5s;
+                transition: max-height .8s;
                 overflow: hidden;
             }
 
             #design{
                 max-height: 0;
-                transition: max-height .5s;
+                transition: max-height .8s;
                 overflow: hidden;
             }
 
             #sub{
                 max-height: 0;
-                transition: max-height .5s;
+                transition: max-height .8s;
                 overflow: hidden;
             }
         }
@@ -242,7 +244,7 @@
         var abrirS = 0;
         var abrirMenu = function(){
             if(abrir === 0){
-                document.querySelector('nav').style.maxHeight = '700px' ;
+                document.querySelector('nav').style.maxHeight = '240px' ;
                 abrir++;
             }else{
                 document.querySelector('nav').style.maxHeight = '0' ;
@@ -262,40 +264,87 @@
             }
         }
         var abrirAbout = function(){
-            if(document.body.clientWidth<=800){
-                if(abrirA === 0){
-                    document.getElementById('about').style.maxHeight = '500px';
-                    abrirA++;
-                }else{
-                    document.getElementById('about').style.maxHeight = 0;
-                    abrirA--;
-                }
-            }
-        }
 
-        var abrirDesign = function(){
             if(document.body.clientWidth<=800){
-                if(abrirD === 0){
-                    document.getElementById('design').style.maxHeight = '500px';
-                    abrirD++;
-                }else{
+                if(abrirD !== 0){
                     document.getElementById('design').style.maxHeight = 0;
                     abrirD--;
                 }
+                if(abrirS !== 0){
+                    document.getElementById('sub').style.maxHeight = 0;
+                    abrirS--;
+                }
+
+                if(abrirA === 0){
+                    document.getElementById('about').style.maxHeight = '120px';
+                    document.querySelector('nav').style.maxHeight = '360px' ;
+                    abrirA++;
+                }else{
+                    document.getElementById('about').style.maxHeight = 0;
+                    document.querySelector('nav').style.maxHeight = '240px';
+                    abrirA--;
+                }
             }
+
+        }
+
+        var abrirDesign = function(){
+
+            if(document.body.clientWidth<=800){
+                if(abrirA !== 0){
+                    document.getElementById('about').style.maxHeight = 0;
+                    document.querySelector('nav').style.maxHeight = '240px';
+                    abrirA--;
+                }
+
+                if(abrirD === 0){
+                    document.getElementById('design').style.maxHeight = '180px';
+                    document.querySelector('nav').style.maxHeight = '420px';
+                    abrirD++;
+                }else{
+                    if(abrirS !== 0){
+                        document.getElementById('sub').style.maxHeight = 0;
+                        abrirS--;
+                    }
+                    document.getElementById('design').style.maxHeight = 0;
+                    document.querySelector('nav').style.maxHeight = '240px';
+                    abrirD--;
+                }
+            }
+
         }
 
         var abrirSub = function(){
+
             if(document.body.clientWidth<=800){
+
                 if(abrirS === 0){
-                    document.getElementById('sub').style.maxHeight = '500px';
+
+                    document.getElementById('sub').style.maxHeight = '120px';
+                    document.getElementById('design').style.maxHeight = '300px';
+                    document.querySelector('nav').style.maxHeight = '540px';
                     abrirS++;
+
                 }else{
                     document.getElementById('sub').style.maxHeight = 0;
+                    document.getElementById('design').style.maxHeight = '180px';
+                    document.querySelector('nav').style.maxHeight = '420px';
                     abrirS--;
                 }
             }
         }
+
+        var previous = window.scrollY;
+        window.addEventListener('scroll', function(){
+            if(window.scrollY > previous){
+                //document.querySelector('header').style.position = 'relative';
+                document.querySelector('header').style.top = '-63px';
+            }else{
+                document.querySelector('header').style.position = 'fixed';
+                document.querySelector('header').style.top = '0px';
+            }
+            previous = window.scrollY;
+        });
 
     </script>
 </body>

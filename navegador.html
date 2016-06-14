@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navegador</title>
+    <style>
+        body{
+            background-color: #00b0e8;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header{
+            background-color: #0d3349;
+            box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        header > a{
+            text-decoration: none;
+            color: white;
+        }
+
+        header > a > h1{
+            margin: 0;
+        }
+
+
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        nav > ul > li{
+            float: left;
+        }
+
+        nav ul::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        nav ul li:hover{
+            background-color: rgba(11,151,196,0.5);
+        }
+
+        nav ul li:hover > ul{
+            display: block;
+        }
+
+        nav ul li a{
+            display: inline-block;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            width: 110px;
+        }
+
+        nav ul li a:hover{
+            background-color: #0b97c4;
+        }
+
+        nav ul ul{
+            position: absolute;
+            top: 100%;
+            background-color: rgba(11,151,196,0.5);
+            display: none ;
+        }
+
+        nav ul ul li{
+            position: relative;
+        }
+
+        nav ul ul ul{
+            left:-100%;
+            top:0;
+        }
+
+        nav > ul{
+            padding-left: 35px;
+        }
+
+        nav > ul > li > a{
+            padding: 10px 20px 15px 20px;
+            width: auto;
+        }
+
+
+
+        /**************** RELLENO *****************/
+        section{
+            padding: 50px 200px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .parra{
+            display: flex;
+        }
+
+        .parra2{
+            display: flex;
+        }
+
+        img{
+            padding-top: 40px;
+        }
+
+        @media screen and (max-width: 800px){
+            header{
+                flex-direction: column;
+            }
+            nav ul{
+                padding-top: 20px;
+            }
+            .parra{
+                flex-direction: column;
+            }
+            .parra2{
+                flex-direction: column-reverse;
+            }
+            section{
+               padding: 50px 100px;
+            }
+
+            .parra div, .parra2 div{
+                display: flex;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#"><h1>NAVEGADOR</h1></a>
+        <nav>
+            <ul>
+                <li><a href="#" aria-haspopup="true">About Us</a>
+                    <ul>
+                        <li><a href="#">Sub Link 1</a></li>
+                        <li><a href="#">Sub Link 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" aria-haspopup="true">Design Corner</a>
+                    <ul>
+                        <li><a href="#">Sub Link 1</a></li>
+                        <li><a href="#">Sub Link 2</a></li>
+                        <li><a href="#" aria-haspopup="true">Sub Link 3</a>
+                            <ul>
+                                <li><a href="#">Sub Link 1</a></li>
+                                <li><a href="#">Sub Link 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Contac Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="parra">
+            <div>
+                <img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" alt="">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, aut culpa deleniti, dolor ducimus eum id iure maxime minus molestias, omnis optio unde! Distinctio ipsam neque numquam quam suscipit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, aspernatur at dolore ea eligendi fuga fugiat iusto magni maxime, omnis quasi qui quibusdam saepe similique, suscipit tempora tenetur ullam voluptatum.</p>
+        </div>
+        <div class="parra2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda, aut consectetur consequuntur deserunt ducimus et eum ipsum itaque laudantium minima molestiae natus numquam, quibusdam reiciendis, sed veritatis voluptatibus. Ullam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae delectus enim, eveniet ex fuga hic illum incidunt ipsa maxime nobis odio, perferendis quae quam reiciendis reprehenderit, repudiandae vero!</p>
+            <div>
+                <img src="http://divinitycomputing.com/wp-content/uploads/2015/12/css.png" alt="">
+            </div>
+        </div>
+        <div class="parra">
+            <div>
+                <img src="http://www.warer.es/media/JAVAScript-collector.png" alt="">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam consectetur, cum cupiditate deserunt dolorem eius est ex excepturi fuga hic incidunt iure iusto maxime obcaecati odio quis quisquam sunt!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi asperiores, facere laboriosam nam natus reprehenderit sunt tenetur veniam vitae. Assumenda, dicta est excepturi expedita facere itaque neque officia vero.</p>
+        </div>
+    </section>
+</body>
+</html>
