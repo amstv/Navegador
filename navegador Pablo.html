@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Navegador</title>
+    <style>
+        body{
+            background-color: #00b0e8;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header{
+            background-color: #0d3349;
+            box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        header > a{
+            margin-left: 20px;
+            line-height: 60px;
+        }
+
+        header > a > h1{
+            margin: 0;
+        }
+
+        #menu{
+            display: none;
+            width: 70px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 20px;
+            margin-right: 20px;
+            color: white;
+        }
+
+        nav ul{
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        nav ul li {
+            line-height: 60px;
+            width: 120px;
+            text-align: center;
+            transition: background-color 0.3s ease-in;
+        }
+        nav ul li a{
+            display: block;
+        }
+
+        nav ul li:hover{
+            background-color:rgba(11,151,196,0.9);
+        }
+
+        nav ul li:hover > ul{
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+
+        nav ul ul{
+            background-color: #0d3349;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            z-index: 5;
+            box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.3);
+            transition: all .5s ease-in;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        nav ul ul li{
+            position: relative;
+        }
+
+        nav ul ul ul{
+            position: absolute;
+            left:100%;
+            top:0;
+        }
+
+
+
+        /**************** RELLENO *****************/
+        section{
+            padding: 50px 200px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .parra{
+            display: flex;
+        }
+
+        .parra2{
+            display: flex;
+        }
+
+        img{
+            padding-top: 40px;
+        }
+
+        @media screen and (max-width: 800px){
+            header{
+                height: auto;
+                flex-wrap: wrap;
+            }
+
+            .parra{
+                flex-direction: column;
+            }
+            .parra2{
+                flex-direction: column-reverse;
+            }
+            section{
+               padding: 50px 100px;
+            }
+
+            .parra div, .parra2 div{
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                width: 100vw;
+            }
+            nav ul ul, nav ul ul ul{
+                position: relative;
+                box-shadow: none;
+                opacity: 1;
+            }
+            nav ul ul ul{
+                left: 0;
+            }
+
+            #menu{
+                display: block;
+            }
+
+            nav{
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .8s ease-in;
+            }
+
+            #about{
+                max-height: 0;
+                transition: max-height .5s;
+                overflow: hidden;
+            }
+
+            #design{
+                max-height: 0;
+                transition: max-height .5s;
+                overflow: hidden;
+            }
+
+            #sub{
+                max-height: 0;
+                transition: max-height .5s;
+                overflow: hidden;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            section{
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#"><h1>NAVEGADOR</h1></a>
+        <div id="menu"><a href="#" onclick="abrirMenu()">MENU</a></div>
+        <nav>
+            <ul>
+                <li><a href="#" aria-haspopup="true" onclick="abrirAbout()">About Us</a>
+                    <ul id="about">
+                        <li><a href="#">Sub Link 1</a></li>
+                        <li><a href="#">Sub Link 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" aria-haspopup="true" onclick="abrirDesign()">Design Corner</a>
+                    <ul id="design">
+                        <li><a href="#">Sub Link 1</a></li>
+                        <li><a href="#">Sub Link 2</a></li>
+                        <li><a href="#" aria-haspopup="true" onclick="abrirSub()">Sub Link 3</a>
+                            <ul id="sub">
+                                <li><a href="#">Sub Link 1</a></li>
+                                <li><a href="#">Sub Link 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Contac Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="parra">
+            <div>
+                <img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" alt="">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, aut culpa deleniti, dolor ducimus eum id iure maxime minus molestias, omnis optio unde! Distinctio ipsam neque numquam quam suscipit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, aspernatur at dolore ea eligendi fuga fugiat iusto magni maxime, omnis quasi qui quibusdam saepe similique, suscipit tempora tenetur ullam voluptatum.</p>
+        </div>
+        <div class="parra2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda, aut consectetur consequuntur deserunt ducimus et eum ipsum itaque laudantium minima molestiae natus numquam, quibusdam reiciendis, sed veritatis voluptatibus. Ullam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae delectus enim, eveniet ex fuga hic illum incidunt ipsa maxime nobis odio, perferendis quae quam reiciendis reprehenderit, repudiandae vero!</p>
+            <div>
+                <img src="http://divinitycomputing.com/wp-content/uploads/2015/12/css.png" alt="">
+            </div>
+        </div>
+        <div class="parra">
+            <div>
+                <img src="http://www.warer.es/media/JAVAScript-collector.png" alt="">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam consectetur, cum cupiditate deserunt dolorem eius est ex excepturi fuga hic incidunt iure iusto maxime obcaecati odio quis quisquam sunt!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi asperiores, facere laboriosam nam natus reprehenderit sunt tenetur veniam vitae. Assumenda, dicta est excepturi expedita facere itaque neque officia vero.</p>
+        </div>
+    </section>
+    <script>
+        var abrir = 0;
+        var abrirA = 0;
+        var abrirD = 0;
+        var abrirS = 0;
+        var abrirMenu = function(){
+            if(abrir === 0){
+                document.querySelector('nav').style.maxHeight = '700px' ;
+                abrir++;
+            }else{
+                document.querySelector('nav').style.maxHeight = '0' ;
+                abrir--;
+                if(abrirA !== 0){
+                    document.getElementById('about').style.maxHeight = 0;
+                    abrirA--;
+                }
+                if(abrirD !== 0){
+                    document.getElementById('design').style.maxHeight = 0;
+                    abrirD--;
+                }
+                if(abrirS !== 0){
+                    document.getElementById('sub').style.maxHeight = 0;
+                    abrirS--;
+                }
+            }
+        }
+        var abrirAbout = function(){
+            if(document.body.clientWidth<=800){
+                if(abrirA === 0){
+                    document.getElementById('about').style.maxHeight = '500px';
+                    abrirA++;
+                }else{
+                    document.getElementById('about').style.maxHeight = 0;
+                    abrirA--;
+                }
+            }
+        }
+
+        var abrirDesign = function(){
+            if(document.body.clientWidth<=800){
+                if(abrirD === 0){
+                    document.getElementById('design').style.maxHeight = '500px';
+                    abrirD++;
+                }else{
+                    document.getElementById('design').style.maxHeight = 0;
+                    abrirD--;
+                }
+            }
+        }
+
+        var abrirSub = function(){
+            if(document.body.clientWidth<=800){
+                if(abrirS === 0){
+                    document.getElementById('sub').style.maxHeight = '500px';
+                    abrirS++;
+                }else{
+                    document.getElementById('sub').style.maxHeight = 0;
+                    abrirS--;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
